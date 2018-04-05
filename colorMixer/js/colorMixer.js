@@ -29,7 +29,6 @@ var rightColors = {
 
 // Color index is the index of the currently selected inner array from the colors array
 var currentColorIdx = 0; 
-var currentTargetColorIdx = 0;
 
 // Select all divs for the left and middle divs
 var colorSource = document.querySelectorAll(".colorSource");
@@ -58,18 +57,4 @@ function changeColor(event) {
   console.log(color);
   
   currentColorIdx = (currentColorIdx + 1) % leftColors.length
-}
-
-// Function to control only the right div, and cycle through the blended color list
-function changeTargetColor(event) {
-  var r = targetColors[currentTargetColorIdx][0];
-  var g = targetColors[currentTargetColorIdx][1];
-  var b = targetColors[currentTargetColorIdx][2];
-  
-  var color = "rgb("+r+","+g+","+b+")";
-  
-  event.target.style.backgroundColor = color;
-  console.log(color);
-  
-  currentTargetColorIdx = (currentTargetColorIdx + 1) % targetColors.length
 }
