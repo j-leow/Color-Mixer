@@ -28,7 +28,7 @@ var rightColors = {
 }
 
 // Select all divs for the left and middle divs
-var colorSource = document.querySelectorAll(".colorSource");
+var colorSource = document.getElementsByClassName("colorSource");
 
 // Select right div - specifically the style
 var colorTarget = document.querySelector("#colorTarget").style;
