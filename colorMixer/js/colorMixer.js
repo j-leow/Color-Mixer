@@ -10,6 +10,7 @@ Purpose: An application that will start a div at a black color, and as a user pr
  04/03/2018: Tried for loops to iterate through the properties of the color objects
  04/04/2018: Learned to use event.target as a way to create one function to affect multiple DOM elements
  04/04/2018: Added function to cycle through results colors
+ 04/05/2018: Removed target color div's array - replaced with object. 
 ***************************************/
 
 // Define array of colors for the left and middle div - red, green, and blue
@@ -23,8 +24,8 @@ var currentTargetColorIdx = 0;
 // Select all divs for the left and middle divs
 var colorSource = document.querySelectorAll(".colorSource");
 
-// Select right div
-var colorTarget = document.querySelector("#colorTarget");
+// Select right div - specifically the style
+var colorTarget = document.querySelector("#colorTarget").style;
 
 // Loop through all the targets, put the same event listener on each
 for (var i = 0; i < colorSource.length; i++) {
