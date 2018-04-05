@@ -16,7 +16,16 @@ Purpose: An application that will start a div at a black color, and as a user pr
 // Define array of colors for the left and middle div - red, green, and blue 
 //Leave them as arrays so that I can use different methods 
 var leftColors = [[255, 0, 0], [0, 255, 0], [0, 0, 255]];
-var targetColors = [[255, 0, 0], [255, 0, 255], [255, 255, 0], [0, 0, 255], [0, 255, 255], [255, 0, 255], [0, 255,0], [255, 255, 0], [0, 255, 255]];
+
+// All possible colors for the right div - make this into an object - each property is then also an object to store values for r, g, and b.
+var rightColors = {
+  "red" : { "r" : 255, "g" : 0, "b" : 0 },
+  "magenta" : { "r" : 255, "g" : 0, "b" : 255 },
+  "yellow" : { "r" : 255, "g" : 255, "b" : 0 },
+  "blue" : { "r" : 0, "g" : 255, "b" : 0 },
+  "cyan" : { "r" : 0, "g" : 255, "b" : 255 },
+  "green" : { "r" : 0, "g" : 255, "b" : 0 },
+}
 
 // Color index is the index of the currently selected inner array from the colors array
 var currentColorIdx = 0; 
