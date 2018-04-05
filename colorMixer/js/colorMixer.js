@@ -27,14 +27,17 @@ var rightColors = {
   "green" : { "r" : 0, "g" : 255, "b" : 0 },
 }
 
-// Color index is the index of the currently selected inner array from the colors array
-var currentColorIdx = 0; 
-
 // Select all divs for the left and middle divs
 var colorSource = document.querySelectorAll(".colorSource");
 
 // Select right div - specifically the style
 var colorTarget = document.querySelector("#colorTarget").style;
+
+// Set the variable for the initial right div's color
+var currentRightColor;
+
+// Create a dictionary to store the current index of each div of colorSource
+var indexes = [];
 
 // Loop through all the targets, put the same event listener on each
 for (var i = 0; i < colorSource.length; i++) {
