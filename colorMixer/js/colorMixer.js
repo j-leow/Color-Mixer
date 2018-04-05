@@ -13,8 +13,9 @@ Purpose: An application that will start a div at a black color, and as a user pr
  04/05/2018: Removed target color div's array - replaced with object. 
 ***************************************/
 
-// Define array of colors for the left and middle div - red, green, and blue
-var colors = [[255, 0, 0], [0, 255, 0], [0, 0, 255]];
+// Define array of colors for the left and middle div - red, green, and blue 
+//Leave them as arrays so that I can use different methods 
+var leftColors = [[255, 0, 0], [0, 255, 0], [0, 0, 255]];
 var targetColors = [[255, 0, 0], [255, 0, 255], [255, 255, 0], [0, 0, 255], [0, 255, 255], [255, 0, 255], [0, 255,0], [255, 255, 0], [0, 255, 255]];
 
 // Color index is the index of the currently selected inner array from the colors array
@@ -38,16 +39,16 @@ colorTarget.addEventListener('click', changeTargetColor);
 //Function to change color
 // Use modulus operator to "loop" through the arrays
 function changeColor(event) {
-  var r = colors[currentColorIdx][0];
-  var g = colors[currentColorIdx][1];
-  var b = colors[currentColorIdx][2];
+  var r = leftColors[currentColorIdx][0];
+  var g = leftColors[currentColorIdx][1];
+  var b = leftColors[currentColorIdx][2];
   
   var color = "rgb("+r+","+g+","+b+")";
   
   event.target.style.backgroundColor = color;
   console.log(color);
   
-  currentColorIdx = (currentColorIdx + 1) % colors.length
+  currentColorIdx = (currentColorIdx + 1) % leftColors.length
 }
 
 // Function to control only the right div, and cycle through the blended color list
