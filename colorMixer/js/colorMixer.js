@@ -10,7 +10,7 @@ Purpose: An application that will start a div at a black color, and as a user pr
  04/03/2018: Tried for loops to iterate through the properties of the color objects
  04/04/2018: Learned to use event.target as a way to create one function to affect multiple DOM elements
  04/04/2018: Added function to cycle through results colors
- 04/05/2018: Removed target color div's array - replaced with object. 
+ 04/05/2018: Removed target color div's array - replaced with object. Experimented with ES6.
 ***************************************/
 
 // Define array of colors for the left and middle div - red, green, and blue 
@@ -39,13 +39,13 @@ var currentRightColor;
 // Create a dictionary to store the current index of each div of colorSource
 var indexes = [];
 
+// Vanilla JS version of adding event listener:
 // Loop through all the targets, put the same event listener on each
 for (var i = 0; i < colorSource.length; i++) {
-  colorSource[i].addEventListener('click', changeColor);
+  colorSource[i].addEventListener('click', changeLeftColor, false);
+  indexes[colorSource[i].id] = 0;
+  indexes.length++;
 }
-
-// Add event listener to the right div
-colorTarget.addEventListener('click', changeTargetColor);
 
 //Function to change color
 // Use modulus operator to "loop" through the arrays
