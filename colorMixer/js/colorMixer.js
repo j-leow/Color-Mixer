@@ -63,19 +63,19 @@ var handleClickEvent = function(event) {
   }
 }
 
-//Function to change color
+//Function to change color and increment the index.
+// (Note: index[event.target.id] uses the id of the event as a reference into the indexes dictionary)
 // Use modulus operator to "loop" through the arrays
 var changeLeftColor = function(event) {
-  var r = leftColors[currentColorIdx][0];
-  var g = leftColors[currentColorIdx][1];
-  var b = leftColors[currentColorIdx][2];
+  indexes[event.target.id] = (indexes[event.target.id] + 1) % leftColors.length;
+
+  var r = leftColors[indexes[event.target.id]][0];
+  var g = leftColors[indexes[event.target.id]][1];
+  var b = leftColors[indexes[event.target.id]][2];
   
   var color = "rgb("+r+","+g+","+b+")";
   
   event.target.style.backgroundColor = color;
-  console.log(color);
-  
-  currentColorIdx = (currentColorIdx + 1) % leftColors.length
 }
 
 // Vanilla JS version of adding event listener:
