@@ -52,6 +52,10 @@ var handleClickEvent = function(event) {
   var rightColor = getCurrentRightColor();
   var leftBlend = getCurrentLeftBlend();
 
+  //Check to see that the r, g, b values are correct
+  console.log("left blend : rgb("+leftBlend.r+", "+leftBlend.g+", "+leftBlend.b+")");
+  console.log("right color : rgb("+rightColor.r+", "+rightColor.g+", "+rightColor.b+")");
+
   if (leftBlend.r == rightColor.r && leftBlend.b == rightColor.b && leftBlend.g == rightColor.g) {
     window.alert("Successfully matched colors. Generating new right div.");
     var newColor = getRandomColor(rightColors);
