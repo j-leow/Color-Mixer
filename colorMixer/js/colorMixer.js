@@ -78,12 +78,26 @@ var changeLeftColor = function(event) {
   event.target.style.backgroundColor = color;
 }
 
+// Function to set the right div to a color
+var setRightColor = function(color) {
+  currentRightColor = color;
+
+  r = color.r;
+  g = color.g;
+  b = color.b;
+
+  var colorTarget = document.querySelector("#colorTarget").style;
+  var newRGB = "rgb("+r+", "+g+", "+b+")";
+  colorTarget.backgroundColor = newRGB;
+}
+
 /* TODO set right color
 * Set left blend 
 * Create random color function
 * Create function to get right color
 * Initialize elements
 */
+
 // Vanilla JS version of adding event listener:
 // Loop through all the targets, put the same event listener on each
 for (var i = 0; i < colorSource.length; i++) {
