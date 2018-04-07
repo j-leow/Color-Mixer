@@ -11,6 +11,7 @@ Purpose: An application that will start a div at a black color, and as a user pr
  04/04/2018: Learned to use event.target as a way to create one function to affect multiple DOM elements
  04/04/2018: Added function to cycle through results colors
  04/05/2018: Removed target color div's array - replaced with object. Experimented with ES6.
+ 04/06/2018: Changed some functions to ES6 for efficiency.
 ***************************************/
 
 // Define array of colors for the left and middle div - red, green, and blue 
@@ -142,7 +143,7 @@ Array.from(colorSource).forEach(function(element) {
 });
 
 // Initialize the elements
-var x = getRandomColor(rightColor);
+var x = getRandomColor(rightColors);
 var startColor = "rgb("+x.r+","+x.g+","+x.b+")";
 colorTarget.backgroundColor = startColor;
 currentRightColor = x;

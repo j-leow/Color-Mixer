@@ -1,9 +1,17 @@
 body {
   background: rgb(233, 233, 233);
+  
+}
+
+h1, h2, p {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
 }
 
 .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .colorSource, #colorTarget {
@@ -12,4 +20,6 @@ body {
   height: 200px;
   border: solid 1px;
   margin-left: 20px;
+  padding: 20px;
+  margin-top: 30px;
 }
