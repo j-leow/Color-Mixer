@@ -140,3 +140,9 @@ Array.from(colorSource).forEach(function(element) {
   indexes[element.id] = 0;
   indexes.length++;
 });
+
+// Initialize the elements
+var x = getRandomColor(rightColor);
+var startColor = "rgb("+x.r+","+x.g+","+x.b+")";
+colorTarget.backgroundColor = startColor;
+currentRightColor = x;
