@@ -49,8 +49,8 @@ var handleClickEvent = function(event) {
   console.log("Click source is: " + event.target.id);
   changeLeftColor(event);
 
-  var rightColor = getCurrentRightColor();
-  var leftBlend = getCurrentLeftBlend();
+  var rightColor = getCurrentRightColor(); //get the current right color
+  var leftBlend = getCurrentLeftBlend(); //get the current left color
 
   //Check to see that the r, g, b values are correct
   console.log("left blend : rgb("+leftBlend.r+", "+leftBlend.g+", "+leftBlend.b+")");
@@ -91,10 +91,40 @@ var setRightColor = function(color) {
   colorTarget.backgroundColor = newRGB;
 }
 
-/* TODO set right color
+// Function to return the current right color
+function getCurrentRightColor() {
+  return currentRightColor;
+}
+
+// Function to get the current left color - return an object with the rgb elements
+var getCurrentLeftBlend = function() {
+  var mixR = 0;
+  var mixG = 0;
+  var mixB = 0;
+
+  //Use ES6 since that loops through objects very efficiently
+  for (var key in indexes) {
+    mixR += leftColors[indexes[key]][0];
+    mixG += leftColors[indexes[key]][1];
+    mixB += leftColors[indexes[key]][2];
+  }
+
+  //Ternary operator! ES6 is awesome - if r is > 255, then r = 255, else, r = mixR, repeat for g, and b.
+  r = (mixR > 255) ? 255 : mixR;
+  g = (mixG > 255) ? 255 : mixG;
+  b = (mixB > 255) ? 255 : mixB;
+
+  return {
+    "r" : r,
+    "g" : g,
+    "b" : b,
+  }
+}
+
+/* TODO 
 * Set left blend 
 * Create random color function
-* Create function to get right color
+
 * Initialize elements
 */
 
