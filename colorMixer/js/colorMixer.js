@@ -44,7 +44,6 @@ var indexes = [];
  * Click to see if new blend is match for target blend.
  * If match, then set right color to random color - show alert.
 */
-
 var handleClickEvent = function(event) {
   console.log("Click source is: " + event.target.id);
   changeLeftColor(event);
@@ -58,8 +57,8 @@ var handleClickEvent = function(event) {
 
   if (leftBlend.r == rightColor.r && leftBlend.b == rightColor.b && leftBlend.g == rightColor.g) {
     window.alert("Successfully matched colors. Generating new right div.");
-    var newColor = getRandomColor(rightColors);
-    setRightColor(newColor);
+    var newColor = getRandomColor(rightColors); //If colors match (i.e. left divs match right divs, then getRandomColor)
+    setRightColor(newColor); //Set the right div to new color
   }
 }
 
@@ -121,17 +120,23 @@ var getCurrentLeftBlend = function() {
   }
 }
 
-/* TODO 
-* Set left blend 
-* Create random color function
-
-* Initialize elements
-*/
+// Function to create random color and set it to the right div - return colors from dictionary randomly (use Math.random)
+function getRandomColor(colors) {
+  var keys = Object.keys(colors);
+  return colors[keys[Math.floor(keys.length * Math.random())]];
+}
 
 // Vanilla JS version of adding event listener:
 // Loop through all the targets, put the same event listener on each
-for (var i = 0; i < colorSource.length; i++) {
-  colorSource[i].addEventListener('click', changeLeftColor, false);
-  indexes[colorSource[i].id] = 0;
+// for (var i = 0; i < colorSource.length; i++) {
+//   colorSource[i].addEventListener('click', changeLeftColor, false);
+//   indexes[colorSource[i].id] = 0;
+//   indexes.length++;
+// }
+
+// Trying the ES6 version of adding event listener
+Array.from(colorSource).forEach(function(element) {
+  element.addEventListener('click', handleClickEvent);
+  indexes[element.id] = 0;
   indexes.length++;
-}
+});
